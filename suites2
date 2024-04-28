@@ -1,0 +1,67 @@
+package com.mycompany.menu;
+
+import java.util.ArrayList;
+
+public class suites2{
+    
+    static String nome;
+    static boolean[] quarto = new boolean[10];
+    static ArrayList<Integer> suiteLuxo = new ArrayList<>();
+    public static void suiteLuxo(){
+        
+        
+        while(true){
+            
+            System.out.println("1 - Exibir reserva.");
+            System.out.println("2 - Escolher quarto.");
+            System.out.println("3 - Voltar.");
+            System.out.println();
+            var escolha = lerDados.lerInt();
+            
+            switch(escolha){
+                
+                case 1:
+                    exibirReserva();
+                    break;
+                case 2:
+                    fazerReserva();
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Numero invalido. Tente novamente");
+        }
+    }
+        }
+    public static void exibirReserva(){
+        
+        System.out.println("----- Reservas de Quartos -----");
+        for (int i = 0; i < 10; i++) {
+            if (quarto[i]) {
+                System.out.println("Quarto " + (i + 11) + ": Ocupado por " + nome);
+            } else {
+                System.out.println("Quarto " + (i + 11) + ": Disponivel");
+            }
+    }
+    }
+    public static void fazerReserva() {
+        System.out.println("Qual seu nome?");
+        nome = lerDados.lerTexto();
+        System.out.println();
+        System.out.println("Qual quarto deseja reservar?");
+        var numeroQuarto = lerDados.lerInt() - 10;
+        if (numeroQuarto >= 1 && numeroQuarto <= 10) {
+            quarto[numeroQuarto - 1] = true;
+            System.out.println("Quarto " + (numeroQuarto + 10) + " reservado para " + nome);
+        } else {
+            System.out.println("Número de quarto inválido. Por favor, escolha um número entre 11 e 20.");
+        }
+        suiteLuxo.add(numeroQuarto);
+    }
+    public static void lista2(){
+        for(int reserva : suiteLuxo){
+            System.out.println("Quarto numero " + (reserva + 10) + " ocupado por " + nome);
+            System.out.println();
+        }
+    }
+}
