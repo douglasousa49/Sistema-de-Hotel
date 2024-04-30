@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class suites{
     
+    static int i;
     static String nome;
     static ArrayList<Integer> suitePadrao = new ArrayList<>();
     static boolean[] quarto = new boolean[10];
@@ -36,7 +37,7 @@ public class suites{
     public static void exibirReserva(){
         
         System.out.println("----- Reservas de Quartos -----");
-        for (int i = 0; i < quarto.length; i++) {
+        for (i = 0; i < quarto.length; i++) {
             if (quarto[i]) {
                 System.out.println("Quarto " + (i + 1) + ": Ocupado por " + nome);
             } else {
@@ -49,16 +50,28 @@ public class suites{
         System.out.println("Qual seu nome?");
         nome = lerDados.lerTexto();
         System.out.println();
+        
+        int numeroQuarto = 0;
+        
+        boolean x = true;
+        
+        while(x){
+             
         System.out.println("Qual quarto deseja reservar?");
-        var numeroQuarto = lerDados.lerInt();
+        numeroQuarto = lerDados.lerInt();
+      
         if (numeroQuarto >= 1 && numeroQuarto <= quarto.length) {
             quarto[numeroQuarto - 1] = true;
             System.out.println("Quarto " + numeroQuarto + " reservado para " + nome);
-        } else {
+            suitePadrao.add(numeroQuarto);
+            x = false;
+        }else{
             System.out.println("Número de quarto inválido. Por favor, escolha um número entre 1 e 10.");
-        }
-        suitePadrao.add(numeroQuarto);
+            x = true;    
+        } 
     }
+}
+    
     public static void lista1(){
         for(int reserva : suitePadrao){
             System.out.println("Quarto numero " + reserva + " ocupado por " + nome);
