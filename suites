@@ -60,7 +60,7 @@ public class suites {
             if (numeroQuarto < 1 || numeroQuarto > 10) {
                 System.out.println("Numero de quarto invalido. Por favor, digite um numero de 1 a 10.");
             } else if (quarto[numeroQuarto - 1]){
-                System.out.println("Quarto ocupado.");
+                System.out.println("Quarto ocupado por " + reservas.get(numeroQuarto));
             } else {
                 quarto[numeroQuarto - 1] = true;
                 System.out.println("---- Quarto Reservado ----");
